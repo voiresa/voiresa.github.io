@@ -1,0 +1,746 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>web</title><link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = ''><h1><a name="centerchinese-public-welfare-videos-on-youtubecenter" class="md-header-anchor"></a><center><span>Chinese Public Welfare Videos on YouTube</span></center></h1><figure><table><thead><tr><th style='text-align:center;' ><span>GENRE</span></th><th style='text-align:left;' ><center><span>NAME OF THE SAMPLE VIDEO        </span></center></th><th style='text-align:left;' ><center><span>URL FOR THE VIDEO</span></center></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Cineverite</span></td><td style='text-align:left;' ><span>【1080P Chi-Eng】《武汉日夜》/ Days and Nights in Wuhan 真实还原武汉战疫 致敬所有为抗疫默默付出的平凡英雄！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=CRLPuHkm3XU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=14' target='_blank' class='url'>https://www.youtube.com/watch?v=CRLPuHkm3XU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=14</a></td></tr><tr><td style='text-align:center;' ><span>Other movie clips</span></td><td style='text-align:left;' ><span>武汉抗疫医生竟是当年汶川地震被志愿者救出的小女孩！爱的接力从未停止！《最美逆行者》感动特辑</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=nrUj-8ogqnU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=316' target='_blank' class='url'>https://www.youtube.com/watch?v=nrUj-8ogqnU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=316</a></td></tr><tr><td style='text-align:center;' ><span>Other movie clips</span></td><td style='text-align:left;' ><span>【HIGHLIGHT】疫情是一场没有硝烟的战争，向所有英雄致敬！《武汉日夜》/Days and Nights in Wuhan</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=H8Yx3ECzGEA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=49&amp;t=30s' target='_blank' class='url'>https://www.youtube.com/watch?v=H8Yx3ECzGEA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=49&t=30s</a></td></tr><tr><td style='text-align:center;' ><span>Other movie clips</span></td><td style='text-align:left;' ><span>Days and Nights in Wuhan  Official Movie Trailer  Coronavirus Documentary Movie</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=dXsbWfIeAYc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=38&amp;t=10s' target='_blank' class='url'>https://www.youtube.com/watch?v=dXsbWfIeAYc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=38&t=10s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>全球战疫MV：We Are The World【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=t18DsGk1qc0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=37&amp;t=6s' target='_blank' class='url'>https://www.youtube.com/watch?v=t18DsGk1qc0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=37&t=6s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>“武汉，我们在等你” 比利时音乐家的“战疫”MV亮了 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=YXCZsYORsTY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=17' target='_blank' class='url'>https://www.youtube.com/watch?v=YXCZsYORsTY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=17</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>蔡徐坤抗疫歌曲Home：送给“战疫”中的每个人 希望与爱从未离开【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=rdGiVMXt_mg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=23' target='_blank' class='url'>https://www.youtube.com/watch?v=rdGiVMXt_mg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=23</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>#2020高校抗疫大合唱《曙光》Official Music Visual (HD)</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=G6UbfKsD-GQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=311' target='_blank' class='url'>https://www.youtube.com/watch?v=G6UbfKsD-GQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=311</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>中国音乐家与海外艺术家共同助力—武汉加油！中国加油！《手拉手一起走》作词：吉炳轩 作曲：张振国 演奏演唱：吉林省交响乐团、加拿大维也纳艺术中心</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wEr2bei72SE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=243' target='_blank' class='url'>https://www.youtube.com/watch?v=wEr2bei72SE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=243</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>王韵婵、王杰《祈祷》，致敬前线的白衣天使们，中国加油，武汉加油！ Prayer - Tribute to Frontline Medical Personnel</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=IvGOdE-Kqd8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=192' target='_blank' class='url'>https://www.youtube.com/watch?v=IvGOdE-Kqd8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=192</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>#武汉加油 时隔22年，祖海含泪重录《为了谁》（武汉版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=hhYRDlwMQfI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=258' target='_blank' class='url'>https://www.youtube.com/watch?v=hhYRDlwMQfI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=258</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>献给武汉【Ysy】武汉加油 熱門歌曲 動態歌詞 Lyrics 無損音樂⚡️Chavel Music⚡️</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=-UJIESV9ziI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=225' target='_blank' class='url'>https://www.youtube.com/watch?v=-UJIESV9ziI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=225</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>逆行的微笑，双胞胎艺人子笺子凛为武汉加油！西望成都</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=7_ljzMec03o&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=227' target='_blank' class='url'>https://www.youtube.com/watch?v=7_ljzMec03o&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=227</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【建造業界同心合唱抗疫歌 為社會注入正能量】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=bAHrlCMxVds&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=179' target='_blank' class='url'>https://www.youtube.com/watch?v=bAHrlCMxVds&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=179</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《出征》宝石Gem 中国加油 武汉加油！ Go  WUHAN ！GO China！amid the fight against the spread of the coronavirus.</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vfetEU4nN18&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=176&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=vfetEU4nN18&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=176&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《抗疫同舟》MV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=pPN9ZR4GNUQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=317' target='_blank' class='url'>https://www.youtube.com/watch?v=pPN9ZR4GNUQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=317</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《坚信爱会赢》武汉加油，中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Ch7BA4SwYKc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=188' target='_blank' class='url'>https://www.youtube.com/watch?v=Ch7BA4SwYKc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=188</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《武汉伢》官方MV 武汉挺住! 武汉加油！湖北加油！中国加油！世界加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=UGbQdp4z2VY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=206' target='_blank' class='url'>https://www.youtube.com/watch?v=UGbQdp4z2VY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=206</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>Fighting the Coronavirus with Hugs - A Love Message 中国加油！武汉加油！(CHN)</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=CCaZbzRY15c&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=283' target='_blank' class='url'>https://www.youtube.com/watch?v=CCaZbzRY15c&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=283</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《人間》抗疫合唱版</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Xx-wS_NS-wg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=300' target='_blank' class='url'>https://www.youtube.com/watch?v=Xx-wS_NS-wg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=300</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【肺炎疫情 x 神树】 Never Give Up! 武汉加油！中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=piqRh6joISI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=252' target='_blank' class='url'>https://www.youtube.com/watch?v=piqRh6joISI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=252</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油，17位武汉的声音</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=058rHmowgcM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=280' target='_blank' class='url'>https://www.youtube.com/watch?v=058rHmowgcM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=280</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>Stay With You cover:林俊杰 cover by Jane Wei 武汉加油！We all stay with you</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=9gopnvhEw_k&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=261' target='_blank' class='url'>https://www.youtube.com/watch?v=9gopnvhEw_k&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=261</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>中国加油！武汉加油！以歌相约！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=CZffmsipD3g&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=278' target='_blank' class='url'>https://www.youtube.com/watch?v=CZffmsipD3g&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=278</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>唱哭亿万人《武汉伢》《stay with you》《背影》 武汉加油 中国加油 Be Strong Wuhan, Be Strong China</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=SVXaPhukFt8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=187&amp;t=19s' target='_blank' class='url'>https://www.youtube.com/watch?v=SVXaPhukFt8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=187&t=19s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油歌曲 - Go Fighting for Wuhan China song 【KTV 歌词 】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=BAGx3PCNWuQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=255' target='_blank' class='url'>https://www.youtube.com/watch?v=BAGx3PCNWuQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=255</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>羅藝恆 Laurence 《奥利给》樣武汉加油！～奥利给！Wuhan Fighting!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=dbTZBlEJL6Q&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=218' target='_blank' class='url'>https://www.youtube.com/watch?v=dbTZBlEJL6Q&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=218</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉，你好吗 #cover #武汉加油 #中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=9scHZh3Cs8w&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=296' target='_blank' class='url'>https://www.youtube.com/watch?v=9scHZh3Cs8w&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=296</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>南京一中 抗疫宣传片《一直到黎明》 2020/03/04</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=q0dON4PBb_4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=324' target='_blank' class='url'>https://www.youtube.com/watch?v=q0dON4PBb_4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=324</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉，加油！邓紫棋新歌《平凡天使》，致敬那平凡又不平凡英雄们</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=KVMCkSTzwjs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=222' target='_blank' class='url'>https://www.youtube.com/watch?v=KVMCkSTzwjs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=222</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>“众志成城 共同战疫”让首张丹峰的《武汉加油》为武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=hmlf70gDOJQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=290' target='_blank' class='url'>https://www.youtube.com/watch?v=hmlf70gDOJQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=290</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>「加油武汉」「DJ版」「Come On Wuhan」 「武汉加油」「 中国加油」 「Wuhan Fighting」「動態歌詞Lyrics」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=lWysZkHS0Dg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=226' target='_blank' class='url'>https://www.youtube.com/watch?v=lWysZkHS0Dg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=226</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>「加油武汉」 ,「動態歌詞」,  高音質動態歌詞</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=VRrsUDz8IlA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=183' target='_blank' class='url'>https://www.youtube.com/watch?v=VRrsUDz8IlA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=183</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>❤❤ #武汉加油！“Spring is Here - Spring Water in Spring” ＃Chuntianle #improvisation 即兴 Self-Composed</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=UJ5uEmHKhPg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=267' target='_blank' class='url'>https://www.youtube.com/watch?v=UJ5uEmHKhPg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=267</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油！看到泪目！《武汉伢》！ 作词：段思思、谭旋  作曲：谭旋                                      影像版权归属：©杨柯</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=y_UXbomvKxU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=217' target='_blank' class='url'>https://www.youtube.com/watch?v=y_UXbomvKxU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=217</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>PART 2《让世界充满爱》百位明星“战疫”MV 周迅迪丽热巴等百位明星共唱齐抗疫 武汉加油【综艺风向标】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=I-S4w3yeFps&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=190' target='_blank' class='url'>https://www.youtube.com/watch?v=I-S4w3yeFps&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=190</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ddzbr49n2rs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=276' target='_blank' class='url'>https://www.youtube.com/watch?v=ddzbr49n2rs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=276</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>龍珠 肺炎抗疫歌2 MV 粵語 (原曲 龍珠超  主題曲「限界突破×Survivor」)</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=m2LNCOgVPCs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=308' target='_blank' class='url'>https://www.youtube.com/watch?v=m2LNCOgVPCs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=308</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【短片】【抗疫英雄，保重！】謝霆鋒譜曲聯同兩岸歌手王俊凱、蕭敬騰 向所有抗疫人員講聲《保重》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vXbcSf7L_vg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=120' target='_blank' class='url'>https://www.youtube.com/watch?v=vXbcSf7L_vg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=120</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【短片】【教育界發放正能量】教聯會上載原創MV《全力抗炎》 籲請教師緊守崗位、保重身體、齊心抗疫！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=IDj1Jz48Mak&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=121' target='_blank' class='url'>https://www.youtube.com/watch?v=IDj1Jz48Mak&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=121</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【短片】【為抗疫醫護加油！】劉德華、張學友接力獻唱抗疫歌 華仔為《我知道》親自填詞、以表達醫護人員無私奉獻 學友唱出《等風雨經過》、為醫護人員打氣</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=oMxPzA8qVPA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=119&amp;t=13s' target='_blank' class='url'>https://www.youtube.com/watch?v=oMxPzA8qVPA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=119&t=13s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【短片】【抗疫神曲】港澳台群星合唱粵語版《堅信愛會贏》、 以歌為武漢獻祝福！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=jaStmosUMM4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=113&amp;t=35s' target='_blank' class='url'>https://www.youtube.com/watch?v=jaStmosUMM4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=113&t=35s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《加华国际视界》武汉加油!中国加油！让世界充满爱！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ddTbNh5jGa4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=269' target='_blank' class='url'>https://www.youtube.com/watch?v=ddTbNh5jGa4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=269</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>1.29  一方有难，八方支援。武汉加油，中国加油。</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=uQ0MBMwDFEg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=262' target='_blank' class='url'>https://www.youtube.com/watch?v=uQ0MBMwDFEg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=262</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>Stay with you JJ Lin  武汉加油！[ 作词: 孙燕姿 ]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=fDhqI9GwnWA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=220' target='_blank' class='url'>https://www.youtube.com/watch?v=fDhqI9GwnWA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=220</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油  《你的答案（抗疫版）》某大学某院声乐团改编 正能量</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=JdeH0C7kfKs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=257' target='_blank' class='url'>https://www.youtube.com/watch?v=JdeH0C7kfKs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=257</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油 - 中国加油。wuhan</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=J6IlwCCdq6c&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=274' target='_blank' class='url'>https://www.youtube.com/watch?v=J6IlwCCdq6c&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=274</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>患难与共   武汉加油，中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wK5RuIsDwIE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=277' target='_blank' class='url'>https://www.youtube.com/watch?v=wK5RuIsDwIE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=277</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>文艺界抗疫主题MV《坚信爱会赢》万众一心  共同抗疫</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XtP9Axw32Nk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=62&amp;t=17s' target='_blank' class='url'>https://www.youtube.com/watch?v=XtP9Axw32Nk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=62&t=17s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>公益歌曲《你的答案》武汉MV,武汉加油，中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=aZplGWC5nsU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=174' target='_blank' class='url'>https://www.youtube.com/watch?v=aZplGWC5nsU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=174</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>华晨宇：你要相信这不是最后一天，武汉加油！！！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=yTY2QJvIfsE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=254' target='_blank' class='url'>https://www.youtube.com/watch?v=yTY2QJvIfsE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=254</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>旦增尼玛《照亮生命的旅途》武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=zDcQCplG4zM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=234' target='_blank' class='url'>https://www.youtube.com/watch?v=zDcQCplG4zM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=234</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>黄渤版，歌曲改编《加油武汉，加油湖北》为战冠状病毒加油鼓劲</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=TxWJ0jDhJDI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=247' target='_blank' class='url'>https://www.youtube.com/watch?v=TxWJ0jDhJDI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=247</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>清华大学、北京大学、中国传媒大学鸿篇巨制@武汉加油MV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=9OmBXnr6M7Y&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=239' target='_blank' class='url'>https://www.youtube.com/watch?v=9OmBXnr6M7Y&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=239</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>抗击疫情主题MV《致敬，白衣战士》【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=QybUzAaXzP0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=155&amp;t=14s' target='_blank' class='url'>https://www.youtube.com/watch?v=QybUzAaXzP0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=155&t=14s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>华晨宇《你要相信这不是最后一天》 宋丹丹杨紫张一山携众星献声公益【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=8ddPjW50sAo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=160&amp;t=20s' target='_blank' class='url'>https://www.youtube.com/watch?v=8ddPjW50sAo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=160&t=20s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>文艺界抗疫主题MV《歌手》版首发：《坚信爱会赢》万众一心我们必胜！【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=BbQsUbF2MXc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=157&amp;t=16s' target='_blank' class='url'>https://www.youtube.com/watch?v=BbQsUbF2MXc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=157&t=16s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>声援武汉 加油中国</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=iPyhbCAythA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=182' target='_blank' class='url'>https://www.youtube.com/watch?v=iPyhbCAythA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=182</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>改编歌曲《武汉加油》众志成城，抗击肺炎，加油我的国</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=DmGYse25c8g&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=298' target='_blank' class='url'>https://www.youtube.com/watch?v=DmGYse25c8g&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=298</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油  MV PUBG (fight against wuhan covid)</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=sjFUrKYXTmU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=184' target='_blank' class='url'>https://www.youtube.com/watch?v=sjFUrKYXTmU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=184</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油！《伴你前行》MV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ZKeBZeUoWpA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=223' target='_blank' class='url'>https://www.youtube.com/watch?v=ZKeBZeUoWpA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=223</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《我们的旗帜》武汉加油，中国加油咪咕自制video</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=IPpWwSS2Yh8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=203' target='_blank' class='url'>https://www.youtube.com/watch?v=IPpWwSS2Yh8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=203</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《炙热阳光》群星为武汉加油，倾情演唱，让我们一起为武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=3cHHnbHkalY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=264' target='_blank' class='url'>https://www.youtube.com/watch?v=3cHHnbHkalY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=264</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>南征北战NZBZ《最美的期待》武汉加油公益版mv温情上线，武汉加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=C2DFWnskycs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=185' target='_blank' class='url'>https://www.youtube.com/watch?v=C2DFWnskycs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=185</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>Wuhan Stay Strong 武汉加油  feat. NZBZ 不愿回头</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=hv0vNYOWsnQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=288' target='_blank' class='url'>https://www.youtube.com/watch?v=hv0vNYOWsnQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=288</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【中国加油 武汉加油】 公益歌曲</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=SKnjQAQODAg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=199' target='_blank' class='url'>https://www.youtube.com/watch?v=SKnjQAQODAg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=199</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【原创史诗音乐】《2020(ง •̀_•́)ง》为武汉加油，向前线勇士致敬！ 水中的蜻蜓  Sally233  混剪视频</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=BtvRtEFE1U4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=289' target='_blank' class='url'>https://www.youtube.com/watch?v=BtvRtEFE1U4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=289</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>七位歌手公益献唱的歌曲《坚定希望 With hope,with me》正式上线！坚定希望，不论前方是什么，我们一起走过</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=IoUg0ru7xng&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=167&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=IoUg0ru7xng&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=167&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油！防疫公益歌曲《爱会永恒》MV首发：用心灵点燃生命的灯</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wy4laAiRdLw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=295' target='_blank' class='url'>https://www.youtube.com/watch?v=wy4laAiRdLw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=295</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>文藝界抗擊疫情主題曲MV-【堅信愛會贏】王力宏 獨唱版</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=hF1HzJJH7zI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=191' target='_blank' class='url'>https://www.youtube.com/watch?v=hF1HzJJH7zI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=191</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《勇敢的笑容》公益歌曲，為武漢加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=MeXhHmc52qM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=112' target='_blank' class='url'>https://www.youtube.com/watch?v=MeXhHmc52qM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=112</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【武汉加油】祖娅纳惜、HITA、柏凝、Braska、李蚊香、冥月月、玄觞、小爱的妈、小时姑娘、妖扬、龟仙人龟娘、流浪的蛙</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=nWZIA-o_M_g&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=232' target='_blank' class='url'>https://www.youtube.com/watch?v=nWZIA-o_M_g&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=232</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>我知道 華仔新歌抗疫</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=0Yss28pkS0s&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=168' target='_blank' class='url'>https://www.youtube.com/watch?v=0Yss28pkS0s&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=168</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>#坚信爱会赢粤语版#最新上线！转！加油！[武汉加油]风雨后必将迎来彩虹齐担当对抗艰难，相伴团结，我们#坚信爱会赢#！加油武汉！加油中国</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=0_-FMal77kQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=237' target='_blank' class='url'>https://www.youtube.com/watch?v=0_-FMal77kQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=237</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【超治愈】未来武汉为现在武汉加油，黎明的编钟声国语版MV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=MopDpF3RSKU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=293' target='_blank' class='url'>https://www.youtube.com/watch?v=MopDpF3RSKU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=293</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>天耀中华︱武汉加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=lMFM2dpmukk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=251' target='_blank' class='url'>https://www.youtube.com/watch?v=lMFM2dpmukk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=251</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>张杰  Zhang Jie  张杰就唱 ( we can win )  武汉 加油 , 中国 加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=6rk8p_YQ14g&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=186&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=6rk8p_YQ14g&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=186&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>张杰 ZhangJie  张杰就唱《 只要平凡 》武汉加油 中国加油  爱你们哦💪💪💪</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=qQ7SN82NO6U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=224' target='_blank' class='url'>https://www.youtube.com/watch?v=qQ7SN82NO6U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=224</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>青田张良生 青田方言歌 众志成城抗病毒 武汉加油 青田加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=-6hUqhv6Z5A&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=281' target='_blank' class='url'>https://www.youtube.com/watch?v=-6hUqhv6Z5A&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=281</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>世上总是好人多，武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=rYWQar0L6C8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=263' target='_blank' class='url'>https://www.youtube.com/watch?v=rYWQar0L6C8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=263</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《等我回家》MV发布 田华、刘江等表演艺术家携手抗“疫【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XOnAmphTT6w&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=29&amp;t=7s' target='_blank' class='url'>https://www.youtube.com/watch?v=XOnAmphTT6w&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=29&t=7s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>百对战疫新人云婚礼 主题曲音乐短片甜蜜发布李宇春520云婚礼主题曲【抗疫公益歌曲】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=TbUXUJaOo7s&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=35' target='_blank' class='url'>https://www.youtube.com/watch?v=TbUXUJaOo7s&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=35</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>陕师大音乐学院制作抗击疫情主题MV《心有光芒》【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=DHFusL6OGiI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=54&amp;t=25s' target='_blank' class='url'>https://www.youtube.com/watch?v=DHFusL6OGiI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=54&t=25s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>电影频道邀请抗疫一线英雄重新唱响经典爱国歌曲《我的祖国》【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=4X3XFS4UsrU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=13' target='_blank' class='url'>https://www.youtube.com/watch?v=4X3XFS4UsrU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=13</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>朱一龙翻唱老歌《少年壮志不言愁》致敬公安民警【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=gta8JRm1lVU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=40&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=gta8JRm1lVU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=40&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>肖央为抗疫中的不凡英雄献声 《生来平凡》致敬每一位平凡的英雄【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=JV3rSO1nTTI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=31&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=JV3rSO1nTTI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=31&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>许魏洲演唱公益歌曲《珍惜》，为一线医务人员加油打气【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=RIgUDoNWVYs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=20&amp;t=2s' target='_blank' class='url'>https://www.youtube.com/watch?v=RIgUDoNWVYs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=20&t=2s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>首都艺术家情系疫区 推出公益歌曲《爱是桥梁》【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=NxkBaeCHTpk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=32' target='_blank' class='url'>https://www.youtube.com/watch?v=NxkBaeCHTpk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=32</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>雷佳王俊凯 联袂献唱原创公益歌曲《武汉不孤单》【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XsNZjy7o5ho&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=33&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=XsNZjy7o5ho&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=33&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>张学友演唱、周杰伦作曲、方文山作词《等风雨经过》《中国医生》》/  Chinese Doctors  ( 张涵予 / 袁泉  )【预告片先知  Official Movie Trailer】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=M-Gf9ffnDPg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=25&amp;t=2s' target='_blank' class='url'>https://www.youtube.com/watch?v=M-Gf9ffnDPg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=25&t=2s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>军地文艺工作者燃情唱响原创抗疫歌曲《最美的温暖》【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=E_aH2aVdZP4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=12' target='_blank' class='url'>https://www.youtube.com/watch?v=E_aH2aVdZP4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=12</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉好久不见！愿我们面朝大海春暖花开李宇春暖心为武汉加油武汉重启【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=HcRIYmlkD-o&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=39' target='_blank' class='url'>https://www.youtube.com/watch?v=HcRIYmlkD-o&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=39</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>暖心MV：战“疫”路上，有《天使的阳光》（佟丽娅/韩磊 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=-ncMHbkLS2Y&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=9' target='_blank' class='url'>https://www.youtube.com/watch?v=-ncMHbkLS2Y&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=9</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>华晨宇为战“疫”创作《你要相信这不是最后一天》口罩挡不住微笑 隔离隔不断希望【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=_dGaJMolM2I&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=24' target='_blank' class='url'>https://www.youtube.com/watch?v=_dGaJMolM2I&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=24</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>佟丽娅蔡徐坤合唱抗疫歌曲《山河无恙在我胸》【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=yGutfq_aQ6U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=7&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=yGutfq_aQ6U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=7&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉人朱一龙演唱《向上的光》为同胞加油【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=AGMzq3PalDI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=207' target='_blank' class='url'>https://www.youtube.com/watch?v=AGMzq3PalDI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=207</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>70位志愿者献唱抗疫公益歌曲MV《心暖心等于世界》【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=4xMpAwPUZRo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=3&amp;t=13s' target='_blank' class='url'>https://www.youtube.com/watch?v=4xMpAwPUZRo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=3&t=13s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>张艺兴和粉丝创作单曲《会好的》向所有战疫人员致敬 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=BD4nnSKPFdM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=22' target='_blank' class='url'>https://www.youtube.com/watch?v=BD4nnSKPFdM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=22</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>王一博献唱《因为我们在一起》/ We Stay Together【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=jyharPf_Evo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=18&amp;t=2s' target='_blank' class='url'>https://www.youtube.com/watch?v=jyharPf_Evo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=18&t=2s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>成龙周华健刘德华刘欢联手献唱《难说再见》致敬援鄂医疗队【抗疫公益歌曲coronavirus song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=9rSksO7E0T0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=27&amp;t=25s' target='_blank' class='url'>https://www.youtube.com/watch?v=9rSksO7E0T0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=27&t=25s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>张学友周杰伦方文山合作《等风雨经过》  【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XACQ9AEKOwY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=4' target='_blank' class='url'>https://www.youtube.com/watch?v=XACQ9AEKOwY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=4</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>林俊杰孙燕姿为武汉加油 《stay with you》曝MV【新闻资讯 News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=D0IkHrwzOwo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=195' target='_blank' class='url'>https://www.youtube.com/watch?v=D0IkHrwzOwo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=195</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>群星演唱抗疫公益歌曲《武汉伢》为武汉加油 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=rjy42Ixwtxc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=1&amp;t=47s' target='_blank' class='url'>https://www.youtube.com/watch?v=rjy42Ixwtxc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=1&t=47s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>群星共同演绎抗疫情公益歌曲《我们一定会胜利》【中国电影报道  20200131】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=KQuhOqpnOzw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=5&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=KQuhOqpnOzw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=5&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>朱一龙李现常石磊黄嘉琪合唱武汉你好吗  《武汉，你好吗》MV正式发布【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=oBqY9efW2NA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=208' target='_blank' class='url'>https://www.youtube.com/watch?v=oBqY9efW2NA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=208</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>“声”援武汉公益歌曲《我们在一起》上线【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=JrlKC5MwPCM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=28&amp;t=4s' target='_blank' class='url'>https://www.youtube.com/watch?v=JrlKC5MwPCM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=28&t=4s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>谢霆锋王俊凯萧敬腾共同演绎《保重》致敬奋战前线的全体“战士” 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=jeHmomIQ5Qo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=26&amp;t=19s' target='_blank' class='url'>https://www.youtube.com/watch?v=jeHmomIQ5Qo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=26&t=19s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《坚信爱会赢》主题MV 文艺界致敬战斗在抗击疫情一线的所有人【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vOsBjQ-4pvI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=55&amp;t=14s' target='_blank' class='url'>https://www.youtube.com/watch?v=vOsBjQ-4pvI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=55&t=14s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>好声音接力歌唱武汉加油！《世界为你醒来》男生版  周兴才让 黄稔钦 王克 魏然 陈其楠 黎真吾 由博文等</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=dz-k29_JcyE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=172' target='_blank' class='url'>https://www.youtube.com/watch?v=dz-k29_JcyE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=172</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【单曲纯享】历届武汉籍学员《世界为你醒来》【2020中国好声音】巅峰之夜 Sing!China2020 11月20日</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=oBXGHjG5Nk0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=173' target='_blank' class='url'>https://www.youtube.com/watch?v=oBXGHjG5Nk0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=173</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《世界为你醒来》中国好声音学员致敬一线英雄 武汉加油！中国加油！ 吴莫愁 李琦 蒋敦豪 扎西平措 旦增尼玛 邢晗铭張恒遠 郭沁 斯丹曼簇 王晓天余枫 夏恒</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=kWaPXF8GOuo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=171' target='_blank' class='url'>https://www.youtube.com/watch?v=kWaPXF8GOuo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=171</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【中国信心】原创MV 为武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=R8_XHl9qBGE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=181&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=R8_XHl9qBGE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=181&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【致敬疫情前线工作人员】东风快递原创MV《你的答案》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ZsRZ4hrjJNc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=233' target='_blank' class='url'>https://www.youtube.com/watch?v=ZsRZ4hrjJNc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=233</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>外籍歌手戴博拉唱响“抗疫”之歌：团结终将战胜疾病</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vqg9CQ_JHo8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=83&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=vqg9CQ_JHo8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=83&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《我的希望和明天》献给战“疫”中的祖国</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=qfBPDoW7h1k&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=90' target='_blank' class='url'>https://www.youtube.com/watch?v=qfBPDoW7h1k&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=90</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>刘德华致敬抗疫一线医护 填词创作MV《我知道》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=tPzzm2ZHsiY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=80' target='_blank' class='url'>https://www.youtube.com/watch?v=tPzzm2ZHsiY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=80</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>为武汉加油！中国新闻社剪辑版《武汉伢》新鲜出炉</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=l6KDeSLl-jE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=89&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=l6KDeSLl-jE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=89&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>“我的城市生病了” 歌曲《武汉伢》听哭无数人</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=LoqnJmAnXow&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=84&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=LoqnJmAnXow&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=84&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>新冠肺炎《光》致敬每一位逆流而上的追光者！沈涛 罗希 陈欢 席文 更生 何敏 秦原 郝艺然倾情演唱 《众志成城 防控疫情》浙江卫視最新疫情动态  20200203 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=AXITkcKDWwo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=97' target='_blank' class='url'>https://www.youtube.com/watch?v=AXITkcKDWwo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=97</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>视频：为武汉加油！黄晓明张艺兴王俊凯等献唱《我们心在一起》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=cEvs7N-WGkk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=259' target='_blank' class='url'>https://www.youtube.com/watch?v=cEvs7N-WGkk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=259</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《敬礼》MV 爱FM向抗疫英雄致敬</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=sV3H5Tu3GL8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=310' target='_blank' class='url'>https://www.youtube.com/watch?v=sV3H5Tu3GL8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=310</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油  中国加油  海来阿木</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=oJMUo-2YiVI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=238' target='_blank' class='url'>https://www.youtube.com/watch?v=oJMUo-2YiVI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=238</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>德国中学生合唱中文歌为武汉加油：让世界充满爱</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ViOUdtB5Mi8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=287' target='_blank' class='url'>https://www.youtube.com/watch?v=ViOUdtB5Mi8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=287</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油 洪湖水浪打浪 网络手风琴六重奏 国际键盘联盟</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=-Kg9CyJPsOM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=241' target='_blank' class='url'>https://www.youtube.com/watch?v=-Kg9CyJPsOM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=241</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>A 「Starlight」 for those angels who help us fight for the virus!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Rq9JnEEl7h4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=315' target='_blank' class='url'>https://www.youtube.com/watch?v=Rq9JnEEl7h4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=315</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>中国加油 武汉加油 WUHAN CORONAVIRUS FIGHT - DEDICATION SONG</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=7Z4_kQqr2G4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=240' target='_blank' class='url'>https://www.youtube.com/watch?v=7Z4_kQqr2G4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=240</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>德国中学生合唱中文歌为武汉加油《让世界充满爱》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wlwwm2pSjFg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=260' target='_blank' class='url'>https://www.youtube.com/watch?v=wlwwm2pSjFg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=260</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>解放军创作的MV《武汉加油》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=5stiIxZ0O9U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=177' target='_blank' class='url'>https://www.youtube.com/watch?v=5stiIxZ0O9U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=177</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>china. you are not alone 中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=HQPUXSnT5Co&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=205' target='_blank' class='url'>https://www.youtube.com/watch?v=HQPUXSnT5Co&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=205</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>抗疫情 佩戴口罩宣传片之  周杰伦《止战之殇》mv翻拍</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=crHCwiIjltM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=334' target='_blank' class='url'>https://www.youtube.com/watch?v=crHCwiIjltM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=334</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《战疫》【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=bVioHhNeCQ8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=158&amp;t=11s' target='_blank' class='url'>https://www.youtube.com/watch?v=bVioHhNeCQ8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=158&t=11s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【ENG SUB】《你有多美》致敬“逆行者”——何炅、汪涵、李维嘉、杜海涛、沈梦辰、刘烨、靳梦佳、李锐、丁文山、魏哲浩倾情演唱【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=QSfmMaN4RSs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=156&amp;t=13s' target='_blank' class='url'>https://www.youtube.com/watch?v=QSfmMaN4RSs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=156&t=13s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>《明天會更好》2020抗疫大合唱(Cover by New Taipei City Councillors)</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XE_tJ4GBHPQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=303' target='_blank' class='url'>https://www.youtube.com/watch?v=XE_tJ4GBHPQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=303</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【抗疫歌曲】只要祖国一声令中国加油，武汉加油❤</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=dy-cyMQC2xo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=178&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=dy-cyMQC2xo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=178&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>88位志愿者合唱《一直到黎明》抗击疫情，从自我做起</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=MsMKvzu5_Go&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=165&amp;t=4s' target='_blank' class='url'>https://www.youtube.com/watch?v=MsMKvzu5_Go&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=165&t=4s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>文艺界抗击疫情主题曲《坚信爱会赢》，18位文艺工作者倾情献唱</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=6D85P5GEvbw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=166&amp;t=7s' target='_blank' class='url'>https://www.youtube.com/watch?v=6D85P5GEvbw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=166&t=7s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【伴奏+歌词】林俊杰stay with you --  为武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=bAzx_WxLijc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=236' target='_blank' class='url'>https://www.youtube.com/watch?v=bAzx_WxLijc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=236</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【Vietsub】一起转！我们在一起！&quot;武汉加油MV&quot; 发布</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=FdNSY77vnNQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=175' target='_blank' class='url'>https://www.youtube.com/watch?v=FdNSY77vnNQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=175</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>【 I&#39;m not a virus】我不是病毒，中国加油，世界加油，拒绝歧视！音阙诗听Music Video</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=SPIY_1Y52FU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=170' target='_blank' class='url'>https://www.youtube.com/watch?v=SPIY_1Y52FU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=170</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>武汉加油︱Wuhan Cheer up！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=2LmR70b2cos&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=248' target='_blank' class='url'>https://www.youtube.com/watch?v=2LmR70b2cos&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=248</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>我和你在一起！“乌克兰英雄”写歌声援中国战“疫”【 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=br1dzA0vhLI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=30&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=br1dzA0vhLI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=30&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>法国音乐家为抗疫献歌 “手牵手，我们共同驱散阴霾”【抗疫公益歌曲Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=fuSxftoZCz8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=10&amp;t=19s' target='_blank' class='url'>https://www.youtube.com/watch?v=fuSxftoZCz8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=10&t=19s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>为抗“疫”加油！纽约华人华侨与国内艺术家合作MV《英雄中国》 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=pph-_RH4BVQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=2' target='_blank' class='url'>https://www.youtube.com/watch?v=pph-_RH4BVQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=2</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>德国伯乐文理中学师生用歌声为武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=7Yc91GLghJs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=210' target='_blank' class='url'>https://www.youtube.com/watch?v=7Yc91GLghJs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=210</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>十国儿童共同唱响人类抗疫主题MV《星光》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=8INa-4eDUg4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=78' target='_blank' class='url'>https://www.youtube.com/watch?v=8INa-4eDUg4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=78</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>MV《命运与共》助力全球抗疫</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=WvwkgAblJMw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=85' target='_blank' class='url'>https://www.youtube.com/watch?v=WvwkgAblJMw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=85</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>比利时钢琴家尚•马龙为武汉创作歌曲《黎明的编钟声》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=1p1pZmZwR50&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=88' target='_blank' class='url'>https://www.youtube.com/watch?v=1p1pZmZwR50&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=88</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>14岁歌手Gail为武汉写歌：你不孤单</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XCwv8rRCWQU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=86' target='_blank' class='url'>https://www.youtube.com/watch?v=XCwv8rRCWQU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=86</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>莫斯科柴院交响乐团奏响《我的祖国》与《喀秋莎》为武汉加油 【抗疫公益歌曲  Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=f6Fez6z4QSQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=36&amp;t=1s' target='_blank' class='url'>https://www.youtube.com/watch?v=f6Fez6z4QSQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=36&t=1s</a></td></tr><tr><td style='text-align:center;' ><span>Music Video</span></td><td style='text-align:left;' ><span>坂本龙一演绎经典曲目《aqua》为中国加油【抗疫公益歌曲 Coronavirus Song】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=cicthK1UR98&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=8' target='_blank' class='url'>https://www.youtube.com/watch?v=cicthK1UR98&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=8</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>中国加油 武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=AMidJcRLTls&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=213' target='_blank' class='url'>https://www.youtube.com/watch?v=AMidJcRLTls&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=213</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>《同心战“疫”》第一集 用“中国速度”与病魔较量 疫情危机之下医护人员挺身应战！【CCTV纪录】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=A-g_PNsA_SM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=147&amp;t=17s' target='_blank' class='url'>https://www.youtube.com/watch?v=A-g_PNsA_SM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=147&t=17s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>【武汉加油】韩红当场泪崩，中国加油，武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=URW-ZODQvuo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=201' target='_blank' class='url'>https://www.youtube.com/watch?v=URW-ZODQvuo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=201</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>英雄回家：幸得有你 山河无恙  中国国家紧急医疗队完成武汉抗疫任务回家</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=13wZzeRv-2I&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=189' target='_blank' class='url'>https://www.youtube.com/watch?v=13wZzeRv-2I&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=189</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>中国加油，武汉加油💪</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XSg2luMVGCM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=198' target='_blank' class='url'>https://www.youtube.com/watch?v=XSg2luMVGCM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=198</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>武汉封城第3天，我们武汉加油。</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Bb-BVfb-W-c&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=279' target='_blank' class='url'>https://www.youtube.com/watch?v=Bb-BVfb-W-c&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=279</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>暖心孝感：我的城我守！ 白衣战士主动请战勇敢逆行《守望家国》EP1【新冠肺炎防控狙击战报道20200220】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=rKOGhaEEl0U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=51&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=rKOGhaEEl0U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=51&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>新冠肺炎处于疫情战役下的他们 比谁更艰难坚韧? 一分钟让你了解COVID-19抗疫《众志成城 防控疫情》20200318 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=NGBoEnt1NyM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=91' target='_blank' class='url'>https://www.youtube.com/watch?v=NGBoEnt1NyM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=91</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>《中国抗疫志》第一集 人类新对手 The New Enemy of Mankind EP1【CCTV纪录】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=W4U4rkbmr6I&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=148&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=W4U4rkbmr6I&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=148&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>《中国抗疫志》第五集 疫情之后 After The Epidemic Outbreak EP5【CCTV纪录】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=pr6QDXQp06E&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=151' target='_blank' class='url'>https://www.youtube.com/watch?v=pr6QDXQp06E&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=151</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>《中国抗疫志》第四集 命运与共 United We Stand EP4【CCTV纪录】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=KUKtETbo_nU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=150&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=KUKtETbo_nU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=150&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>《中国抗疫志》第三集 这里是武汉 This Is Wuhan EP3【CCTV纪录】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vTYJVMxefVc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=152&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=vTYJVMxefVc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=152&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>《中国抗疫志》第二集 行胜于言 Action Speaks Louder Than Words EP2【CCTV纪录】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=avzS1GSL6KQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=149&amp;t=4s' target='_blank' class='url'>https://www.youtube.com/watch?v=avzS1GSL6KQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=149&t=4s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together Against COVID-19 Ep. 2 highlights: A fight for life</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=rHJkWwXAF8A&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=142&amp;t=28s' target='_blank' class='url'>https://www.youtube.com/watch?v=rHJkWwXAF8A&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=142&t=28s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together Against COVID-19 Ep. 5 highlights: A Global community</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=jfLmG7klxOA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=146&amp;t=4s' target='_blank' class='url'>https://www.youtube.com/watch?v=jfLmG7klxOA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=146&t=4s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together against COVID-19 Ep. 5: A Global community</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=9C-53bzg9IE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=145&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=9C-53bzg9IE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=145&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together Against COVID-19 Ep. 6: The People First</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=3cdtUoB-WxY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=141&amp;t=28s' target='_blank' class='url'>https://www.youtube.com/watch?v=3cdtUoB-WxY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=141&t=28s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together against COVID-19 Ep. 3: Strong defense</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=CYrBHIo3Vmk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=143&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=CYrBHIo3Vmk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=143&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together Against COVID-19 Ep. 2: A Fight for Life</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=UT9xVz6l78g&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=137&amp;t=4s' target='_blank' class='url'>https://www.youtube.com/watch?v=UT9xVz6l78g&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=137&t=4s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together against COVID-19 Ep. 3 highlights: Strong defense</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=d_eE2agXfQE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=211' target='_blank' class='url'>https://www.youtube.com/watch?v=d_eE2agXfQE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=211</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together Against COVID-19 Episode 1: The Calling</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=DEo3qk-4yx8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=136&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=DEo3qk-4yx8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=136&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Together Against COVID-19 Ep. 4: Strength in unity</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=PrnQTw7Rw2Y&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=144&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=PrnQTw7Rw2Y&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=144&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>Wuhan Story: Overcoming tough times together</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=r79-gK4v6AI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=140&amp;t=34s' target='_blank' class='url'>https://www.youtube.com/watch?v=r79-gK4v6AI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=140&t=34s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>The Frontline: China&#39;s fight against COVID-19  Documentary Series 1 of 2</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=h4lfp3mvKAE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=135&amp;t=42s' target='_blank' class='url'>https://www.youtube.com/watch?v=h4lfp3mvKAE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=135&t=42s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>The lockdown: One month in Wuhan</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XU9FVqwO4TM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=133&amp;t=211s' target='_blank' class='url'>https://www.youtube.com/watch?v=XU9FVqwO4TM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=133&t=211s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>第四集 众志成城  CCTV「同心战“疫”」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=syvlnzHAfpU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=124&amp;t=42s' target='_blank' class='url'>https://www.youtube.com/watch?v=syvlnzHAfpU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=124&t=42s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>第一集 令出如山  CCTV「同心战“疫”」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=0pSlxSBaK8A&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=126&amp;t=396s' target='_blank' class='url'>https://www.youtube.com/watch?v=0pSlxSBaK8A&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=126&t=396s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>第三集 坚强防线  CCTV「同心战“疫”」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=84pGpGRePQs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=127&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=84pGpGRePQs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=127&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>第五集 命运与共  CCTV「同心战“疫”」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vevY-woBHtE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=129&amp;t=11s' target='_blank' class='url'>https://www.youtube.com/watch?v=vevY-woBHtE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=129&t=11s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>第六集 人民至上  CCTV「同心战“疫”」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=9axTifA9W08&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=130&amp;t=626s' target='_blank' class='url'>https://www.youtube.com/watch?v=9axTifA9W08&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=130&t=626s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>第二集 生死阻击  CCTV「同心战“疫”」</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=8JUARGJf0lU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=125&amp;t=14s' target='_blank' class='url'>https://www.youtube.com/watch?v=8JUARGJf0lU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=125&t=14s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>【短片】【直擊武漢抗疫第一線！】央視採訪武漢協和醫院隔離病房、醫護穿防疫裝備致出疹 護士朱佩佩：至少兩星期沒見過3歲女兒、非常掛念她 醫生唐欣：只要希望還在、恐懼和疾病都不是問題</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=04Atgucb8gQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=115&amp;t=17s' target='_blank' class='url'>https://www.youtube.com/watch?v=04Atgucb8gQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=115&t=17s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>As Winter Goes by丨Episode 2 Remember Me丨YOUKU</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ugrxseHy73o&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=63' target='_blank' class='url'>https://www.youtube.com/watch?v=ugrxseHy73o&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=63</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>As Winter Goes by丨Episode 3 The Spring in Our Memory  YOUKU</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=AWuNms1_zJY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=64&amp;t=13s' target='_blank' class='url'>https://www.youtube.com/watch?v=AWuNms1_zJY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=64&t=13s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>As Winter Goes by丨Episode 1 The City in Lockdown丨YOUKU</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=r2p5Ky8egr4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=61&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=r2p5Ky8egr4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=61&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Documentary</span></td><td style='text-align:left;' ><span>五集连播！系列全景纪录片《中国战疫录》全放送</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=MMm27Mj12x8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=77&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=MMm27Mj12x8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=77&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>Stay Strong WuHan China!  Messages from all over the world 武汉加油！中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=FxdvFUs_kZs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=284' target='_blank' class='url'>https://www.youtube.com/watch?v=FxdvFUs_kZs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=284</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>为逆行者加油！武汉加油！中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=EMo3nLV4oXE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=273' target='_blank' class='url'>https://www.youtube.com/watch?v=EMo3nLV4oXE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=273</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>武汉伢—— 匈牙利华人华侨为武汉加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=94iEZrzRsfQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=266' target='_blank' class='url'>https://www.youtube.com/watch?v=94iEZrzRsfQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=266</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>和你在一起！ 俄罗斯青年自发为武汉加油【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=b1RT-dDAzTc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=245' target='_blank' class='url'>https://www.youtube.com/watch?v=b1RT-dDAzTc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=245</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>欧洲多支球队为中国加油【武汉加油Blessing】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=O_EJQ611EJw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=253' target='_blank' class='url'>https://www.youtube.com/watch?v=O_EJQ611EJw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=253</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>Come on, China!  中国加油！世界加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=VFIDLcoASLw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=197' target='_blank' class='url'>https://www.youtube.com/watch?v=VFIDLcoASLw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=197</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>武汉，你不是病毒之城，你就是武汉，武汉加油 ！—— 德国伯乐高级文理中学的师生</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=gzUdc5lpuPM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=109&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=gzUdc5lpuPM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=109&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>多国声援中国抗疫：中国加油，我们爱你！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=lpLWB__fRXg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=193' target='_blank' class='url'>https://www.youtube.com/watch?v=lpLWB__fRXg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=193</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>泰国国家旅游局录视频为中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=lnCpnjtvLuc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=196' target='_blank' class='url'>https://www.youtube.com/watch?v=lnCpnjtvLuc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=196</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Videos by Other</span></td><td style='text-align:left;' ><span>江南大学留学生为武汉加油！Jiangnan University Students Show Support for Wuhan!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=M65wZBaLfI8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=291' target='_blank' class='url'>https://www.youtube.com/watch?v=M65wZBaLfI8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=291</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>《2020防控疫情公益宣传片》沈梦辰、刘烨、靳梦佳【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Hafj1BBPssw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=163' target='_blank' class='url'>https://www.youtube.com/watch?v=Hafj1BBPssw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=163</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>《2020防控疫情公益宣传片》何炅、李维嘉、杜海涛、李浩菲【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Jk5H6uDsCAY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=162' target='_blank' class='url'>https://www.youtube.com/watch?v=Jk5H6uDsCAY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=162</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>抗击疫情知识类宣传片《抗击疫情，从我做起》王凯、黄晓明、吴磊、李艾、哈妮克孜、包贝尔、陈松伶、李晓峰、杨颖、代云帆、刘宥畅、林昕宜、邓伦、刘诗诗、王鸥、陈赫、吴奇隆【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=gSH4qVdd58c&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=161' target='_blank' class='url'>https://www.youtube.com/watch?v=gSH4qVdd58c&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=161</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>《2020防控疫情公益宣传片》王一博、大张伟【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=eCiBJrnI3oo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=154' target='_blank' class='url'>https://www.youtube.com/watch?v=eCiBJrnI3oo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=154</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>抗击疫情励志类宣传片《同舟，共济！》杨幂、邓伦、杨烁、傅园慧、刘诗诗、吴磊、李莎晏子、赵昭仪、孙艺洲、陈伟霆、张颂文、金晨、许晓诺、肖燃、罗予彤、杨霖、王熙文、张屹杨、【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=AFaRS2xNz8U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=153' target='_blank' class='url'>https://www.youtube.com/watch?v=AFaRS2xNz8U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=153</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>泰国群星为武汉加油！比疫情发展更快的是爱和希望❤武汉加油，中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ihtV2pNJ7s0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=244' target='_blank' class='url'>https://www.youtube.com/watch?v=ihtV2pNJ7s0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=244</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>加油武汉 加油中国！#BLACKPINK##LISA#</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=cys3U8n9shQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=265' target='_blank' class='url'>https://www.youtube.com/watch?v=cys3U8n9shQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=265</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>泰国群星录制公益视频 —— 娜塔玻·提米露克 ณฐพร เตมีรักษ์（Taew）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=md1ZktrXddo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=111' target='_blank' class='url'>https://www.youtube.com/watch?v=md1ZktrXddo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=111</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>泰国群星录制公益视频 ——Naphat</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=SFXwpjAJGds&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=107' target='_blank' class='url'>https://www.youtube.com/watch?v=SFXwpjAJGds&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=107</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>泰国群星录制公益视频 ——Jack</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=DoV_D1J3l5M&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=106' target='_blank' class='url'>https://www.youtube.com/watch?v=DoV_D1J3l5M&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=106</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>泰国群星录制公益视频 ——Chinawut Indracusin （Chin）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=tI8vnopFK0o&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=110&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=tI8vnopFK0o&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=110&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>《2020防控疫情公益宣传》 李晨 陈赫 黄旭熙 朱亚文 王彦霖 跑男兄弟团防控疫情公益宣传 《众志成城 防控疫情》浙江卫视最新疫情动态 20200205 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=esjjdw-176Q&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=164&amp;t=11s' target='_blank' class='url'>https://www.youtube.com/watch?v=esjjdw-176Q&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=164&t=11s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>团结一心共战疫情！成龙等电影人为一线工作人员送上祝福【新冠疫情  News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=MqSJdECJtTk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=48&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=MqSJdECJtTk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=48&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>新冠肺炎《2020防控疫情公益宣传》 刘烨 保剑锋 俞灏明 王鸥 蒋依依 最正能量打气 群星为武汉加油 我们在一起 《众志成城 防控疫情》浙江卫视最新疫情动态 20200205 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=fR8gpPSlPnE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=95' target='_blank' class='url'>https://www.youtube.com/watch?v=fR8gpPSlPnE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=95</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>新冠肺炎《2020防控疫情公益宣传》魏大勋 范丞丞 谭维维 尚雯婕 郭麒麟 郭冬临 王珮瑜和我们一起抗疫情！《众志成城 防控疫情》浙江卫视最新疫情动态 20200208 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Dj0JEuVWzc0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=93&amp;t=11s' target='_blank' class='url'>https://www.youtube.com/watch?v=Dj0JEuVWzc0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=93&t=11s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>新冠肺炎《2020防控疫情公益宣传》 蒋欣 甄子丹 佟大为 杨幂提倡防控疫情 浙江在行动 武汉加油！ 《众志成城 防控疫情》浙江卫视最新疫情动态 20200205 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=7FwOJfISMHw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=94' target='_blank' class='url'>https://www.youtube.com/watch?v=7FwOJfISMHw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=94</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>新冠肺炎《2020防控疫情公益宣传》成龙大哥携杨幂贾玲等群星 为武汉加油 为中国加油 《众志成城 防控疫情》浙江卫视最新疫情动态 20200203 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=QjnDc9oYbps&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=96&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=QjnDc9oYbps&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=96&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Cheering Video by Celebrities</span></td><td style='text-align:left;' ><span>Family members from China and Thailand: Thai Various Artists Record Charity Video</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=5l_PQr4OJEU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=108&amp;t=11s' target='_blank' class='url'>https://www.youtube.com/watch?v=5l_PQr4OJEU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=108&t=11s</a></td></tr><tr><td style='text-align:center;' ><span>Microfilm</span></td><td style='text-align:left;' ><span>系列短剧《平凡英雄之白衣执甲》 致敬抗疫一线医护人员 【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=3MkSYKzH2Ug&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=19&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=3MkSYKzH2Ug&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=19&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Microfilm</span></td><td style='text-align:left;' ><span>《在一起》宣传片之“我叫大连”【预告片先知】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=-fek6zd0tAs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=58&amp;t=4s' target='_blank' class='url'>https://www.youtube.com/watch?v=-fek6zd0tAs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=58&t=4s</a></td></tr><tr><td style='text-align:center;' ><span>Microfilm</span></td><td style='text-align:left;' ><span>贾樟柯自导自演疫情主题短片《来访》上线【预告片先知20200422】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ZHojnKTX1ug&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=60&amp;t=7s' target='_blank' class='url'>https://www.youtube.com/watch?v=ZHojnKTX1ug&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=60&t=7s</a></td></tr><tr><td style='text-align:center;' ><span>Microfilm</span></td><td style='text-align:left;' ><span>#百花奖主题公益短片《#你好吗》徐帆朱一龙演绎感人至深抗疫温情故事  #直击百花奖  #百花奖全景直播  #第35届大众电影百花奖  #第29届金鸡百花电影节</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=sj6U6-0N4wY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=21&amp;t=2s' target='_blank' class='url'>https://www.youtube.com/watch?v=sj6U6-0N4wY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=21&t=2s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>黄晓明抗疫短片《2020使用说明书》 用影像拨动心灵 震撼世界【新冠疫情Coronavirus News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=NWZQ4uddK6U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=16&amp;t=11s' target='_blank' class='url'>https://www.youtube.com/watch?v=NWZQ4uddK6U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=16&t=11s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>人民军队战“疫”宣传片 《我是人民军医》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=ZrCbgLOLwGg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=332' target='_blank' class='url'>https://www.youtube.com/watch?v=ZrCbgLOLwGg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=332</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>彩铅画  Colored Pencil Painting  武汉加油 致敬逆行英雄  Wuhan fighting To Our Heroes</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=qIqeebw0uk0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=294' target='_blank' class='url'>https://www.youtube.com/watch?v=qIqeebw0uk0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=294</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>[公益宣传片] 心相连 战疫情  CCTV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=He2jt9XfeJ4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=123&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=He2jt9XfeJ4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=123&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>[公益宣传片] 爱点燃中国速度  CCTV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wMpOg1ph66E&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=131&amp;t=9s' target='_blank' class='url'>https://www.youtube.com/watch?v=wMpOg1ph66E&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=131&t=9s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>[公益宣传片] 新型冠状病毒防护指南  CCTV</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=vWUpwAF-KK0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=132' target='_blank' class='url'>https://www.youtube.com/watch?v=vWUpwAF-KK0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=132</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>请等一下武汉，武汉加油！湖北加油！中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Y7VSclzF1X8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=180&amp;t=6s' target='_blank' class='url'>https://www.youtube.com/watch?v=Y7VSclzF1X8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=180&t=6s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉加油！用《流浪地球》片头方式回顾新型冠状病毒疫情</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=00KMTyRFYBk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=282' target='_blank' class='url'>https://www.youtube.com/watch?v=00KMTyRFYBk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=282</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>病毒无情，人间有爱，众志成城，共抗疫情，武汉加油，中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=aT2GdtG7Q7k&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=299' target='_blank' class='url'>https://www.youtube.com/watch?v=aT2GdtG7Q7k&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=299</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>Hongkong Bellydance Teacher Anti epidemic propaganda film 抗疫宣傳片</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=BH0Hcid-CV8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=320' target='_blank' class='url'>https://www.youtube.com/watch?v=BH0Hcid-CV8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=320</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>Tinker Dance Troupe Anti epidemic propaganda film 抗疫宣傳片</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=kAer1pVw7TE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=326' target='_blank' class='url'>https://www.youtube.com/watch?v=kAer1pVw7TE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=326</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【Darling Vlog】武汉特辑-为武汉加油！为中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=mK-GgJsuGh0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=270' target='_blank' class='url'>https://www.youtube.com/watch?v=mK-GgJsuGh0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=270</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉最新抗疫宣传片----《武汉莫慌 我们等你》Wuhan We&#39;ll wait you !</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=RzHXY3As4bY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=329' target='_blank' class='url'>https://www.youtube.com/watch?v=RzHXY3As4bY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=329</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉/肺炎/高能混剪！武汉加油！中国加油！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Oukk67swZrg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=285' target='_blank' class='url'>https://www.youtube.com/watch?v=Oukk67swZrg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=285</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉“封城”不孤单 长江灯光秀上演“武汉加油”大片！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=g5KECptTzRo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=228' target='_blank' class='url'>https://www.youtube.com/watch?v=g5KECptTzRo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=228</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>合肥抗疫宣传片</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=FlLwcdWD7IQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=327' target='_blank' class='url'>https://www.youtube.com/watch?v=FlLwcdWD7IQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=327</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉加油!-抗击冠状病毒肺炎加油视频！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=On_iqcjNy9E&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=256' target='_blank' class='url'>https://www.youtube.com/watch?v=On_iqcjNy9E&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=256</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉加油，向一线人员致敬</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=yc7tzugQlTg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=250' target='_blank' class='url'>https://www.youtube.com/watch?v=yc7tzugQlTg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=250</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉加油！！！中国加油！！！早日战胜病毒！必胜</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=UbmgG8GHhaA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=219' target='_blank' class='url'>https://www.youtube.com/watch?v=UbmgG8GHhaA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=219</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>#中国加油 #武汉加油 #全民自救 #全民互救 #武汉肺炎《在冷冽风雪夜中坚守》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=x0Fws9_5w5U&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=297' target='_blank' class='url'>https://www.youtube.com/watch?v=x0Fws9_5w5U&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=297</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉加油！战胜疫情后, 武汉旅游宣传片</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=EI5p6lvayGQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=272' target='_blank' class='url'>https://www.youtube.com/watch?v=EI5p6lvayGQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=272</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉加油，我们能赢，没有任何困难能打败中华民族/Wuhan virus of China</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=8UmJwYzTkZs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=231' target='_blank' class='url'>https://www.youtube.com/watch?v=8UmJwYzTkZs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=231</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>肖战旁白抗击疫情宣传片《三十三》Xiao Zhan narrated the anti-epidemic propaganda film &quot;Thirty-three&quot;</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=dF2RQpVxLX8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=330' target='_blank' class='url'>https://www.youtube.com/watch?v=dF2RQpVxLX8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=330</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>吉林长春抗疫情宣传片《你，就是未来！》</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=bixYw6xnEBE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=322' target='_blank' class='url'>https://www.youtube.com/watch?v=bixYw6xnEBE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=322</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【2020中國·武漢：萬眾壹心 共同戰“疫”】（粤语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=hOjUr1R1Bls&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=103&amp;t=16s' target='_blank' class='url'>https://www.youtube.com/watch?v=hOjUr1R1Bls&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=103&t=16s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【2020中國·武漢：萬眾壹心 共同戰“疫”】（闽南语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=5Mogq6LCSyg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=104&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=5Mogq6LCSyg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=104&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【武汉最新抗疫宣传片——春暖花开 武汉等你归来！】（土耳其语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=z-z79k1eedk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=100&amp;t=17s' target='_blank' class='url'>https://www.youtube.com/watch?v=z-z79k1eedk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=100&t=17s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【武汉最新抗疫宣传片——春暖花开 武汉等你归来！】（国语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=54GFFPDlERg&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=98&amp;t=2s' target='_blank' class='url'>https://www.youtube.com/watch?v=54GFFPDlERg&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=98&t=2s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>最可爱的人！向支援湖北的各地医疗队致敬！</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=IL039-OCoW8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=99&amp;t=7s' target='_blank' class='url'>https://www.youtube.com/watch?v=IL039-OCoW8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=99&t=7s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>《武汉莫慌，我们等你》～武汉最新疫情宣传片</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=JfnKOmnR8Uk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=335' target='_blank' class='url'>https://www.youtube.com/watch?v=JfnKOmnR8Uk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=335</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>微视频《北京，不怕》致敬每一位可爱的战疫者！【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=6u6zwP0iyc0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=47&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=6u6zwP0iyc0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=47&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>共同战疫！看武汉24小时【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=mFXp6oKqFfw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=57' target='_blank' class='url'>https://www.youtube.com/watch?v=mFXp6oKqFfw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=57</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉最新宣传片：有你们在武汉不孤单【新冠肺炎News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=SqgXdb-rUtY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=34&amp;t=14s' target='_blank' class='url'>https://www.youtube.com/watch?v=SqgXdb-rUtY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=34&t=14s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>章子怡旁白的抗疫短片《能》致敬每位逆行勇士【新冠疫情 News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=PLnj2ni8ow8&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=6&amp;t=14s' target='_blank' class='url'>https://www.youtube.com/watch?v=PLnj2ni8ow8&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=6&t=14s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉大学战疫宣传片：没有一段凛寒不曾消散，没有一抹阳光拒绝盎然【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=h4wOn7Jiq7M&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=56&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=h4wOn7Jiq7M&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=56&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>明天， 武汉离汉通道解封 ！【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=oBXmA7o65QA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=43&amp;t=14s' target='_blank' class='url'>https://www.youtube.com/watch?v=oBXmA7o65QA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=43&t=14s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>武汉最新城市宣传片：武汉莫慌，我们等你【新闻资讯News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=HKf0RHT0XdI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=59&amp;t=19s' target='_blank' class='url'>https://www.youtube.com/watch?v=HKf0RHT0XdI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=59&t=19s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>肖战旁白抗疫短片《三十三》/ Thirty-three  narrated by Xiao Zhan 【新冠肺炎News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=5wWAwrJU5OY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=11&amp;t=1s' target='_blank' class='url'>https://www.youtube.com/watch?v=5wWAwrJU5OY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=11&t=1s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>80秒回顾武汉解封时刻武汉重启【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=JxBHe4IlbDQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=44&amp;t=15s' target='_blank' class='url'>https://www.youtube.com/watch?v=JxBHe4IlbDQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=44&t=15s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>新冠肺炎章子怡公益宣传：说星星很亮是因为没看过这些护士的眼睛！疫情敌不过八方驰援《众志成城 防控疫情 [浙江卫视官方HD]</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=AUdAxciQ1yE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=92' target='_blank' class='url'>https://www.youtube.com/watch?v=AUdAxciQ1yE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=92</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>致敬最美逆行者！武汉加油，中国加油</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=U79KTCSrQkY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=209' target='_blank' class='url'>https://www.youtube.com/watch?v=U79KTCSrQkY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=209</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>chinese fighting the epidemic【中国抗疫宣传片】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wuagWm1h__g&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=325' target='_blank' class='url'>https://www.youtube.com/watch?v=wuagWm1h__g&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=325</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>Remembering 2020</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=yFhodF4TaVs&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=134&amp;t=17s' target='_blank' class='url'>https://www.youtube.com/watch?v=yFhodF4TaVs&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=134&t=17s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>Wuhan Jiayou Video in English: 武汉加油宣传片英文版配音</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=wBGRyO4CkHQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=275' target='_blank' class='url'>https://www.youtube.com/watch?v=wBGRyO4CkHQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=275</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>Wuhan will stand up well 武汉加油！20.02.2020庚子年</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=uQy10b6eRCQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=271' target='_blank' class='url'>https://www.youtube.com/watch?v=uQy10b6eRCQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=271</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—特别篇：命运与共 全球抗疫Together, Stronger. We, Fighting the COVID-19. Let&#39;s all stay strong!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=iktwPWzTKg4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=65' target='_blank' class='url'>https://www.youtube.com/watch?v=iktwPWzTKg4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=65</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—志合不以山海远，中德相与济时艰 We, Fighting the COVID-19. Stay strong China, Stay strong Germany!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=QiKc0YHkfA4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=68' target='_blank' class='url'>https://www.youtube.com/watch?v=QiKc0YHkfA4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=68</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>跨越千年，中希挚友同心 Together, Stronger. We, Fighting the COVID-19. Stay strong China, Stay strong Greece!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=GU4t-o7XCH0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=76&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=GU4t-o7XCH0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=76&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—陆海两相牵，中荷心相连 We, Fighting the COVID-19. Stay strong China, Stay strong Netherlands!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=-mZZdzxYl_I&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=73' target='_blank' class='url'>https://www.youtube.com/watch?v=-mZZdzxYl_I&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=73</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—陆海两相牵，中荷心相连 We, Fighting the COVID-19. Stay strong China, Stay strong Netherlands!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=XgjU4TQn5-Y&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=70' target='_blank' class='url'>https://www.youtube.com/watch?v=XgjU4TQn5-Y&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=70</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—千年友谊，彼此“中意”  We, Fighting the COVID-19.Stay strong China!  Stay strong Italy!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=_whPo1Yzri0&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=67&amp;t=7s' target='_blank' class='url'>https://www.youtube.com/watch?v=_whPo1Yzri0&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=67&t=7s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—青山一道同风雨，中日友好共“樱”缘  China-Japan: A Friendship Sharing Trails and Hardships Together.</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=pcozR_qQJyk&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=72' target='_blank' class='url'>https://www.youtube.com/watch?v=pcozR_qQJyk&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=72</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>患难见真情 中伊心相通همیاری و همبستگی در مبارزه مشترک با کروناپشتیبانی چین و ایران از یکدیگر در مقابل کرونا</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=IMjnmxbsVpU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=75&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=IMjnmxbsVpU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=75&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—中新友谊，心“新”相映   We, Fighting the COVID-19. Sino-Singapore: A Friendship Near to Our Heart</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=7d984PVkJNE&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=69&amp;t=13s' target='_blank' class='url'>https://www.youtube.com/watch?v=7d984PVkJNE&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=69&t=13s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—同气连枝，中泰一家亲 We, Fighting the COVID-19. Stay strong China, Stay strong Thailand!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=dNodvYQ9t2Y&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=74' target='_blank' class='url'>https://www.youtube.com/watch?v=dNodvYQ9t2Y&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=74</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫——中韩邻里情，肝胆两相照  We, Fighting the COVID-19.Stay strong China!  Stay strong Korea!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=SaiJV_90DBM&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=71' target='_blank' class='url'>https://www.youtube.com/watch?v=SaiJV_90DBM&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=71</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>守望相助，共同战疫—亲情中法 因爱同行 We, Fighting the COVID-19. Stay strong China, Stay strong France!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=h7dUEqD9mZc&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=66&amp;t=20s' target='_blank' class='url'>https://www.youtube.com/watch?v=h7dUEqD9mZc&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=66&t=20s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>China‘s anti-epidemic publicity video中国抗疫宣传片，中国没有什么了不起</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=OasjwbLCNYU&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=323' target='_blank' class='url'>https://www.youtube.com/watch?v=OasjwbLCNYU&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=323</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>《中国，我在春天等你》【湖南卫视官方HD】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=WWRf4477eMI&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=159&amp;t=31s' target='_blank' class='url'>https://www.youtube.com/watch?v=WWRf4477eMI&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=159&t=31s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【武汉最新抗疫宣传片——春暖花开 武汉等你归来！】（西班牙语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Irz7h2M27lQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=101&amp;t=12s' target='_blank' class='url'>https://www.youtube.com/watch?v=Irz7h2M27lQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=101&t=12s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【中国·武汉疫区日志——“武汉莫慌 我们等你”】（德语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=Y_MJLY-ZVAA&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=102&amp;t=19s' target='_blank' class='url'>https://www.youtube.com/watch?v=Y_MJLY-ZVAA&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=102&t=19s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【武汉最新抗疫宣传片——春暖花开 武汉等你归来！】（意大利语版）</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=LR4Dd4a03Y4&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=319' target='_blank' class='url'>https://www.youtube.com/watch?v=LR4Dd4a03Y4&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=319</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>【Epidemic area Wuhan】—— Love &amp; Hope spread faster than virus!</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=h8zmjHDsm5s&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=105&amp;t=8s' target='_blank' class='url'>https://www.youtube.com/watch?v=h8zmjHDsm5s&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=105&t=8s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>“战疫”公益短片《2020使用说明书》/Remembering 2020 聚焦全球战疫 汤唯旁白温柔不失有力【新冠疫情特别报道】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=uLX2zjZ4A7A&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=42&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=uLX2zjZ4A7A&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=42&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>多国驻华大使支持中国抗击疫情【武汉加油Blessing】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=V_yTJH-bTxQ&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=242' target='_blank' class='url'>https://www.youtube.com/watch?v=V_yTJH-bTxQ&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=242</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>陈坤周迅献声公益短片《阳台里的武汉》 温暖讲述战“疫”故事【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=bgmYqn8vOWo&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=41&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=bgmYqn8vOWo&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=41&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>稳住，我们能赢！＃武汉加油＃中国加油＃快手原创动漫@快手动漫</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=o4gqzefcDxY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=200' target='_blank' class='url'>https://www.youtube.com/watch?v=o4gqzefcDxY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=200</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>动漫版战疫记：谢谢你为湖北拼过命【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=MtB69jmFavY&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=15&amp;t=3s' target='_blank' class='url'>https://www.youtube.com/watch?v=MtB69jmFavY&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=15&t=3s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>CGTN exclusive: Wuhan’s war on COVID-19</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=eAIBkEegH68&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=138&amp;t=5s' target='_blank' class='url'>https://www.youtube.com/watch?v=eAIBkEegH68&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=138&t=5s</a></td></tr><tr><td style='text-align:center;' ><span>Propaganda Film</span></td><td style='text-align:left;' ><span>暖心动画： 热干面又见面了武汉重启 【新冠疫情News】</span></td><td style='text-align:left;' ><a href='https://www.youtube.com/watch?v=r0cSEdOyygw&amp;list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&amp;index=50' target='_blank' class='url'>https://www.youtube.com/watch?v=r0cSEdOyygw&list=PLl7F9yn-hEInA0Hp8lNkNoz4BkcnP-hdH&index=50</a></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+</body>
+</html>
